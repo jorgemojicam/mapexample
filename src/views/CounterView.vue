@@ -1,8 +1,7 @@
-<script setup>
+<script setup lang="ts">
 
 
 import { useCounterStore } from '../stores/counter'
-import { defineComponent, ref } from 'vue';
 
 const counterStore = useCounterStore();
 
