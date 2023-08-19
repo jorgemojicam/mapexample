@@ -10,7 +10,6 @@ const count = ref(0)
   <h1>{{ msg }}</h1>
   <router-link to="/">Home</router-link> | 
   <router-link to="/counter">Counter</router-link> | 
-  <router-link to="/map">Mapa</router-link> | 
   <router-link to="/olmap">OlMapa</router-link>
   <router-view></router-view>
 
