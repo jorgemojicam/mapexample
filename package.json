@@ -9,13 +9,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mdi/font": "^7.2.96",
+    "@types/openlayers": "^4.6.19",
     "ol": "^7.4.0",
     "ol-contextmenu": "^5.2.1",
     "ol-ext": "^4.0.11",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
-    "vue3-openlayers": "^1.2.0"
+    "vue3-openlayers": "^1.2.0",
+    "vuetify": "^3.3.14"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

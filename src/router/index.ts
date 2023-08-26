@@ -1,24 +1,18 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 
-import HomeView from '../views/HomeView.vue';
-import CounterView from '../views/CounterView.vue';
-import OlMap from '../views/OlMap.vue';
+import Captura from '../views/Captura.vue';
+
 
 const routes: RouteRecordRaw[] = [
     {
         path: '/',
-        name: '',
-        component: HomeView
-    },
+        name: 'captura',
+        component: Captura
+    }, 
     {
-        path: '/counter',
-        name: 'counter',
-        component: CounterView
-    },
-    {
-        path: '/olmap',
-        name: 'olmap',
-        component: OlMap
+        path: '/captura',
+        name: 'captura',
+        component: Captura
     }
 ]
 const router = createRouter({
