@@ -35,6 +35,7 @@ class PodasLocal {
   update(id: any, data: any) {
     let podas = localStorage.getItem("podas");
     if (podas) {
+      console.log(id)
       const oldData = JSON.parse(podas);
       oldData.push(data);
     }
