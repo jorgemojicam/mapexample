@@ -1,7 +1,9 @@
 <template>
   <div class="map-container">
     <div id="map" class="map"></div>
-
+    <div ref="popu" id="popup">
+      <div ref="popupcontent">Estamos aqui</div>
+    </div>
     <v-btn
       icon="mdi-plus"
       size="large"
@@ -18,7 +20,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from "vue";
 import "ol/ol.css";
-import { Map, View } from "ol";
+import { Map, Overlay, View } from "ol";
 import Feature from "ol/Feature";
 import Point from "ol/geom/Point";
 import { fromLonLat, transform } from "ol/proj";
@@ -28,6 +30,8 @@ import { Style, Icon } from "ol/style";
 import TileLayer from "ol/layer/Tile";
 import Dialog from "./Dialog.vue";
 import PodasLocal from "../services/PodasLocal";
+import marker from "../assets/marker.png";
+import markergreen from "../assets/markergreen.png";
 
 export default defineComponent({
   name: "MapView",
@@ -36,26 +40,42 @@ export default defineComponent({
   },
   setup() {
     const map = ref<Map | null>(null);
+    const popu = ref<HTMLElement | undefined>(undefined);
+    
     const openModal = ref(false);
     const source = new VectorSource();
+    const source2 = new VectorSource();
     const lat = ref();
     const lon = ref();
 
     const vectorLayer = new VectorLayer({
       source: source,
     });
+    const vectorLayer2 = new VectorLayer({
+      source: source2,
+    });
 
     const view = new View({
       center: fromLonLat([-73.0930381, 7.0647528]),
       zoom: 8,
     });
+    // https://nominatim.openstreetmap.org/reverse?format=json&lon=-73.0930138&lat=7.0647709
 
     const pointStyle = new Style({
       image: new Icon({
         anchor: [0.5, 0.5],
         anchorXUnits: "fraction",
         anchorYUnits: "pixels",
-        src: "src/assets/marker.png",
+        src: marker,
+      }),
+    });
+
+    const pointStyleGreen = new Style({
+      image: new Icon({
+        anchor: [0.5, 0.5],
+        anchorXUnits: "fraction",
+        anchorYUnits: "pixels",
+        src: markergreen,
       }),
     });
 
@@ -72,8 +92,27 @@ export default defineComponent({
             source: new OSM(),
           }),
           vectorLayer,
+          vectorLayer2,
         ],
         view: view,
+      });
+
+      const overlay = new Overlay({
+        element: popu.value,
+        autoPan: {
+          animation: {
+            duration: 250,
+          },
+        },
+      });
+
+      map.value.addOverlay(overlay);
+
+      map.value?.on("click", function (evt) {
+        const coordinate = evt.coordinate;  
+        
+        overlay.setPosition(coordinate);
+        console.log("cooordenadas aqui ", coordinate);
       });
     });
 
@@ -83,16 +122,12 @@ export default defineComponent({
       for (var i = 0; i < podas.length; i++) {
         var iconFeature = new Feature({
           geometry: new Point(
-            transform(
-              [podas[i].lon, podas[i].lat],
-              "EPSG:4326",
-              "EPSG:3857"
-            )
+            transform([podas[i].lon, podas[i].lat], "EPSG:4326", "EPSG:3857")
           ),
         });
 
-        iconFeature.setStyle(pointStyle);
-        source.addFeature(iconFeature);
+        iconFeature.setStyle(pointStyleGreen);
+        source2.addFeature(iconFeature);
       }
     };
 
@@ -126,6 +161,7 @@ export default defineComponent({
       closeModal,
       lat,
       lon,
+      popu,
     };
   },
 });

@@ -18,12 +18,14 @@ class PodasLocal {
   create(data: any) {
     try {
       let podas = localStorage.getItem("podas");
-      if (podas) {
-        const oldData = JSON.parse(podas);
-        oldData.push(data);
-        localStorage.setItem("podas", JSON.stringify(podas));
+      if (podas) {        
+        const oldData = JSON.parse(podas);        
+        const newData = [...oldData, data]
+        localStorage.setItem("podas", JSON.stringify(newData));
       } else {
-        localStorage.setItem("podas", JSON.stringify([data]));
+        let arrPodas = new Array
+        arrPodas.push(data)
+        localStorage.setItem("podas", JSON.stringify(arrPodas));
       }
       return true;
     } catch (error) {
@@ -31,6 +33,7 @@ class PodasLocal {
       return false;
     }
   }
+
 
   update(id: any, data: any) {
     let podas = localStorage.getItem("podas");

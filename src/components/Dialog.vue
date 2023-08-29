@@ -3,7 +3,7 @@
     <v-dialog v-model="open" persistent width="1024">
       <v-card>
         <v-card-title>
-          <span class="text-h5">Registro de poda</span>
+          <span class="text-h5">Registro de poda {{ datetoday.toLocaleDateString() }}</span>
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -113,7 +113,7 @@
   </v-row>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, ref } from "vue";
 import PodasLocal from "../services/PodasLocal";
 
 export default defineComponent({
@@ -130,7 +130,9 @@ export default defineComponent({
     const estadofisico = ref("");
     const estadosanitario = ref("");
     const tipopoda = ref([]);
+    const datetoday = ref(new Date());
 
+    onMounted(() => {});
     const save = () => {
       const podas = {
         codigo: codigo.value,
@@ -155,6 +157,7 @@ export default defineComponent({
       estadofisico,
       estadosanitario,
       tipopoda,
+      datetoday
     };
   },
 });
