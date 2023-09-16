@@ -11,6 +11,7 @@
   "dependencies": {
     "@mdi/font": "^7.2.96",
     "@types/openlayers": "^4.6.19",
+    "axios": "^1.5.0",
     "ol": "^7.4.0",
     "ol-contextmenu": "^5.2.1",
     "ol-ext": "^4.0.11",

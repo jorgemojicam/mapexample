@@ -7,7 +7,7 @@ class PodasLocal {
   }
 
   get() {
-    let podas = localStorage.getItem("podas");
+    let podas = localStorage.getItem("podas");    
     if (podas) {
       return JSON.parse(podas);
     } else {

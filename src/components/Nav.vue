@@ -18,6 +18,9 @@
         <v-list>   
           <v-list-item to="/captura">Registro Arbol</v-list-item>
         </v-list>
+        <v-list>   
+          <v-list-item to="/podas">Podas</v-list-item>
+        </v-list>
       </v-navigation-drawer>
 
       <v-main style="height: 100%">

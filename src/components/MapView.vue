@@ -2,19 +2,39 @@
   <div class="map-container">
     <div id="map" class="map"></div>
     <div ref="popu" id="popup">
-      <div ref="popupcontent">Estamos aqui</div>
+      <div ref="popupcontent">
+        <v-card :title="datos.codigo" subtitle="Subtitle">
+          <v-card-text>
+            <v-table>
+              <tbody>
+                <tr>
+                  <td>Nombre</td>
+                  <td>{{ datos.especie }}</td>
+                </tr>
+                <tr>
+                  <td>Altura</td>
+                  <td>{{ datos.altura }}</td>
+                </tr>
+              </tbody>
+            </v-table>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn @click="closePopup">cerrar</v-btn>
+          </v-card-actions>
+        </v-card>
+      </div>
     </div>
     <v-btn
       icon="mdi-plus"
       size="large"
       color="indigo"
       location="bottom right"
-      style="bottom: 30px; right: 20px"
+      style="bottom: 40px; right: 30px"
       position="absolute"
       @click="addPoint"
     ></v-btn>
   </div>
-  <Dialog :open="openModal" :lat="lat" :lon="lon" @close="closeModal" />
+  <Dialog :open="openModal" :location="dataLocation" @close="closeModal" />
 </template>
 
 <script lang="ts">
@@ -32,6 +52,7 @@ import Dialog from "./Dialog.vue";
 import PodasLocal from "../services/PodasLocal";
 import marker from "../assets/marker.png";
 import markergreen from "../assets/markergreen.png";
+import LocationsService from "../services/LocationsService";
 
 export default defineComponent({
   name: "MapView",
@@ -41,12 +62,24 @@ export default defineComponent({
   setup() {
     const map = ref<Map | null>(null);
     const popu = ref<HTMLElement | undefined>(undefined);
-    
+
     const openModal = ref(false);
     const source = new VectorSource();
     const source2 = new VectorSource();
-    const lat = ref();
-    const lon = ref();
+    const dataLocation = ref({
+      lat: 0,
+      lon: 0,
+      state: "",
+      town: "",
+      neighbourhood: "",
+    });
+
+    const datos = ref({
+      codigo: "",
+      especie: "",
+      estadofisico: "",
+      altura: "",
+    });
 
     const vectorLayer = new VectorLayer({
       source: source,
@@ -85,17 +118,6 @@ export default defineComponent({
 
     onMounted(() => {
       loadPoints();
-      map.value = new Map({
-        target: "map",
-        layers: [
-          new TileLayer({
-            source: new OSM(),
-          }),
-          vectorLayer,
-          vectorLayer2,
-        ],
-        view: view,
-      });
 
       const overlay = new Overlay({
         element: popu.value,
@@ -106,15 +128,42 @@ export default defineComponent({
         },
       });
 
+      map.value = new Map({
+        target: "map",
+        layers: [
+          new TileLayer({
+            source: new OSM(),
+          }),
+          vectorLayer,
+          vectorLayer2,
+        ],
+
+        view: view,
+      });
+
       map.value.addOverlay(overlay);
 
       map.value?.on("click", function (evt) {
-        const coordinate = evt.coordinate;  
-        
+        const coordinate = evt.coordinate;
+        const feature = map.value?.forEachFeatureAtPixel(
+          evt.pixel,
+          (feature) => {
+            return feature;
+          }
+        );
+        if (!feature) {
+          return;
+        }
+        datos.value = feature.get("datos");
         overlay.setPosition(coordinate);
-        console.log("cooordenadas aqui ", coordinate);
       });
     });
+
+    const closePopup = () => {
+      console.log("entro");
+
+      return false;
+    };
 
     const loadPoints = () => {
       const podas = PodasLocal.getAll();
@@ -124,6 +173,7 @@ export default defineComponent({
           geometry: new Point(
             transform([podas[i].lon, podas[i].lat], "EPSG:4326", "EPSG:3857")
           ),
+          datos: podas[i],
         });
 
         iconFeature.setStyle(pointStyleGreen);
@@ -136,17 +186,29 @@ export default defineComponent({
         (succes: { coords: any }) => {
           const crd = succes.coords;
 
-          lon.value = crd.longitude; // Replace with desired longitude
-          lat.value = crd.latitude; // Replace with desired latitude
+          dataLocation.value.lon = crd.longitude; // Replace with desired longitude
+          dataLocation.value.lat = crd.latitude; // Replace with desired latitude
 
           const pointFeature = new Feature({
-            geometry: new Point(fromLonLat([lon.value, lat.value])),
+            geometry: new Point(fromLonLat([dataLocation.value.lon, dataLocation.value.lat])),
           });
 
           pointFeature.setStyle(pointStyle);
           source.addFeature(pointFeature);
           view.setZoom(20);
-          view.setCenter(fromLonLat([lon.value, lat.value]));
+          view.setCenter(fromLonLat([dataLocation.value.lon, dataLocation.value.lat]));
+
+          LocationsService.get(dataLocation.value.lat.toString(), dataLocation.value.lon.toString()).then((res: any) => {
+            if (res.status == 200 && res.data) {
+              dataLocation.value.lat
+              dataLocation.value.lon
+              dataLocation.value.state = res.data.address.state;
+              dataLocation.value.town = res.data.address.town;
+              
+              
+            }
+          });
+
           openModal.value = true;
         },
         (error) => {
@@ -159,9 +221,10 @@ export default defineComponent({
       addPoint,
       openModal,
       closeModal,
-      lat,
-      lon,
+      dataLocation,
       popu,
+      datos,
+      closePopup,
     };
   },
 });
@@ -175,6 +238,6 @@ export default defineComponent({
 
 .map {
   width: 100%;
-  height: 90vh;
+  height: 80vh;
 }
 </style>
