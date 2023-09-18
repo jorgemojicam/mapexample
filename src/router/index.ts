@@ -2,6 +2,7 @@ import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
 
 import Captura from '../views/Captura.vue';
 import Podas from '../views/PodasView.vue';
+import Informe from '../views/PodasInformeView.vue';
 
 
 const routes: RouteRecordRaw[] = [
@@ -19,6 +20,11 @@ const routes: RouteRecordRaw[] = [
         path: '/podas',
         name: 'podas',
         component: Podas
+    },
+    {
+        path: '/informe',
+        name: 'informe',
+        component: Informe
     }
 ]
 const router = createRouter({

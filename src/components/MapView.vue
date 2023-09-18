@@ -71,6 +71,7 @@ export default defineComponent({
       lon: 0,
       state: "",
       town: "",
+      road: "",
       neighbourhood: "",
     });
 
@@ -199,13 +200,14 @@ export default defineComponent({
           view.setCenter(fromLonLat([dataLocation.value.lon, dataLocation.value.lat]));
 
           LocationsService.get(dataLocation.value.lat.toString(), dataLocation.value.lon.toString()).then((res: any) => {
+            
             if (res.status == 200 && res.data) {
               dataLocation.value.lat
               dataLocation.value.lon
               dataLocation.value.state = res.data.address.state;
               dataLocation.value.town = res.data.address.town;
-              
-              
+              dataLocation.value.road = res.data.address.road;
+              dataLocation.value.neighbourhood = res.data.address.neighbourhood;
             }
           });
 

@@ -7,7 +7,7 @@
         <th class="text-left">Barrio</th>
         <th class="text-left">Especie</th>
         <th class="text-left">Fecha</th>
-        <th class="text-left"></th>       
+        <th class="text-left"></th>
       </tr>
     </thead>
     <tbody>
@@ -16,24 +16,31 @@
         <td>{{ item.municipio }}</td>
         <td>{{ item.barrio }}</td>
         <td>{{ item.especie.nombre }} - {{ item.especie.nombrecientifico }}</td>
-        <td>{{ item.fecha }}</td>    
+        <td>{{ item.fecha }}</td>
         <td>
-          <v-btn variant="text" icon="mdi-file"></v-btn>
-        </td>    
+          <v-checkbox-btn v-model="itemSelected" 
+          :value="item"
+          @change="$emit('selectPoda', itemSelected)"></v-checkbox-btn>
+        </td>
       </tr>
     </tbody>
   </v-table>
 </template>
 
 <script lang="ts">
+import { ref } from 'vue';
+
 export default {
   props: {
-    datalist: Object    
+    datalist: Object,
   },
-
+  
   setup(props) {
+    const itemSelected = ref([])
+
     return {
       props,
+      itemSelected
     };
   },
 };

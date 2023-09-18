@@ -28,7 +28,6 @@
             <v-col class="form-control" cols="6" md="3" sm="6" xs="6">
               <v-text-field
                 :value="location?.town"
-                readonly
                 hint="Municipio"
                 persistent-hint
               ></v-text-field>
@@ -71,7 +70,7 @@
                 required
               ></v-text-field>
             </v-col>
-            <v-col  class="form-control" cols="6" md="4" sm="4">
+            <v-col class="form-control" cols="6" md="4" sm="4">
               <v-select
                 :items="listEspecies"
                 item-title="nombre"
@@ -84,8 +83,7 @@
                 required
               >
                 <template v-slot:prepend-item>
-                  <v-list-item title="Seleccione">              
-                  </v-list-item>
+                  <v-list-item title="Seleccione"> </v-list-item>
                   <v-divider class="mt-2"></v-divider>
                 </template>
               </v-select>
@@ -262,6 +260,7 @@ export default defineComponent({
         lon: props.location?.lon,
         municipio: props.location?.town,
         barrio: barrio.value,
+        direccion:direccion.value,
         fecha: datetoday.value.toLocaleDateString()
       };
       console.log(podas);
