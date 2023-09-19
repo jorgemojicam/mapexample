@@ -55,6 +55,7 @@
             </v-col>
             <v-col class="form-control" cols="6" xs="6" sm="4" md="4">
               <v-text-field
+                type="number"
                 label="Dimenciones"
                 required
                 hint="Altura"
@@ -63,6 +64,7 @@
             </v-col>
             <v-col class="form-control" cols="6" xs="6" sm="4" md="4">
               <v-text-field
+                type="number"
                 label="DAP*"
                 hint="DAP"
                 persistent-hint
@@ -152,7 +154,8 @@ export default defineComponent({
     open: Boolean,
     location: Object,
   },
-  setup(props) {
+  emits: ['close'],
+  setup(props, { emit }) {
     const codigo = ref("");
     const altura = ref("");
     const dap = ref("");
@@ -164,8 +167,8 @@ export default defineComponent({
     const barrio = ref([]);
     const direccion = ref("");
     const datetoday = ref(new Date());
-    const listEspecies = ref([] as any);
-
+    const listEspecies = ref([] as any);    
+    
     const getEspecies = () => {
       listEspecies.value = [
         {
@@ -260,11 +263,12 @@ export default defineComponent({
         lon: props.location?.lon,
         municipio: props.location?.town,
         barrio: barrio.value,
-        direccion:direccion.value,
-        fecha: datetoday.value.toLocaleDateString()
+        direccion: direccion.value,
+        fecha: datetoday.value.toLocaleDateString(),
       };
       console.log(podas);
-      PodasLocal.create(podas);
+      PodasLocal.create(podas);      
+      emit('close')
     };
     return {
       save,
