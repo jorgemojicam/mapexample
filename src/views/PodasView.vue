@@ -9,7 +9,7 @@
       <Table :datalist="podas" @selectPoda="onSelectionPoda" />
     </v-row>
     <v-row>
-      <PodasInformeView :datalist="arrPodas"/>
+      <PodasInformeView :datalist="arrPodas" />
     </v-row>
   </v-container>
 </template>
@@ -19,12 +19,11 @@ import PodasLocal from "../services/PodasLocal";
 import Table from "../components/Table.vue";
 import PodasInformeView from "./PodasInformeView.vue";
 
-
 export default defineComponent({
   components: {
     Table,
-    PodasInformeView
-},
+    PodasInformeView,
+  },
   setup() {
     const podas = ref({});
     const arrPodas = ref([] as any);

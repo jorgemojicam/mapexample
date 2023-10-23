@@ -1,0 +1,54 @@
+{"id":322,"name":"Distribución con código: 322","investmentType":"Tipo Observador con
+código: 322","portfolios":[{"description":"Invierte en instrumentos financieros conformados
+por acciones a nivel global.","id":"OMACCG","name":"FPV Acciones
+Global","percentage":2},{"description":"Invierte en instrumentos financieros conformados
+acciones en Mercados Emergentes.","id":"SKACCE","name":"FPV Acciones
+Emergentes","percentage":5},{"description":"Invierte en acciones de empresas colombianas
+listadas en la Bolsa de Valores de Colombia.","id":"SKACP","name":"FPV Strategist Acciones
+Col","percentage":4},{"description":"Invierte en instrumentos financieros conformados por
+acciones en USA.","id":"SKAUSA","name":"FPV Acciones
+USA","percentage":1},{"description":"Invierte diversificadamente en títulos de renta fija,
+renta variable e inversiones alternativas a nivel local y global.","id":"SKCOLX","name":"FPV
+Strategist Moderado","percentage":13},{"description":"Invierte activamente en instrumentos de
+renta fija de deuda pública y corporativa en Colombia.","id":"SKERFL","name":"FPV Bonos
+Colombia Plus","percentage":30},{"description":"Invierte en títulos de renta fija de corto
+plazo, cuentas de ahorro, cuentas corrientes y Fondos de Inversión Colectiva (FIC) abiertos en
+Colombia.","id":"SKESVI","name":"FPV Especial
+Vista","percentage":7},{"description":"Invierte diversificadamente en títulos de renta fija,
+renta variable, e inversiones alternativas a nivel local y global. Se buscará que gran parte de las
+inversiones elegidas cumplan con criterios ASG (Ambientales, Sociales y de Gobierno
+Corporativo).","id":"SKEXTP","name":"FPV Strat. Sostenible
+M.Riesgo","percentage":10},{"description":"Invierte diversificadamente en títulos de renta
+fija y minoritariamente en títulos de renta variable e inversiones alternativas a nivel local y
+global.","id":"SKMMK","name":"FPV Strategist
+Conservador","percentage":13},{"description":"Invierte en títulos de renta fija de corto plazo
+en dólares.","id":"SKMONY","name":"FPV Liquidez
+USA","percentage":5},{"description":"Invierte en títulos de renta fija de corto plazo,
+depósitos a la vista y Fondos de Inversión Colectiva (FICs) abiertos en
+Colombia.","id":"SKTEMP","name":"FPV Strategist Liquidez
+Col","percentage":10}],"investments":[{"description":"Son títulos valores que emiten las
+empresas. Los accionistas son quienes invierten en ellos y reciben retornos. El precio de este
+título cambia constantemente y se considera de alto
+riesgo.","id":"ACC","name":"Acciones","percentage":18},{"description":"Son inversiones
+en activos financieros variados como fondos inmobiliarios, infraestructura, crédito privado,
+materias primas y fondos de capital privado entre otros.","id":"ACTALT","name":"Activos
+Alternativos","percentage":5},{"description":"Son títulos de deuda emitidos por compañías o
+gobiernos, donde el inversionista conoce desde el principio la rentabilidad que recibirá, por lo que
+se consideran activos de bajo
+riesgo.","id":"BNS","name":"Bonos","percentage":59},{"description":"Son inversiones
+fácilmente convertibles en efectivo y su nivel de riesgo es
+mínimo.","id":"ACTLIQ","name":"Activos
+Liquidos","percentage":18}],"hystoric":[{"id":"RentabilidadFutura","name":"Tres
+años","value":"3.74 %
+<span>EA Neto*</span>"},{"id":"RentabilidadHistorica","name":"Un Año","value":"12.77 %
+<span>EA Neto*</span>"},{"id":"PersonasCombinacion","name":"Están alcanzando sus objetivos
+de inversión al escoger esta distribución de portafolios sugerida.","value":"528
+personas"},{"id":"Video","name":"url","value":"https://www.youtube.com/embed//Zy2l--9X8Dk"},{"id":"Porcentaje","name":"Crecimiento
+Capital","value":"6.14"},{"id":"Porcentaje","name":"Crecimiento
+Inflación","value":"3.0"}],"projection":{"labelAxisX":["sep.-2023","oct.-2023","nov.-2023","dic.-2023","ene.-2024","feb.-2024","mar.-2024","abr.-2024","may.-2024","jun.-2024","jul.-2024","ago.-2024","sep.-2024","oct.-2024","nov.-2024","dic.-2024","ene.-2025","feb.-2025","mar.-2025","abr.-2025","may.-2025","jun.-2025","jul.-2025","ago.-2025","sep.-2025","oct.-2025","nov.-2025","dic.-2025","ene.-2026","feb.-2026","mar.-2026","abr.-2026","may.-2026","jun.-2026","jul.-2026","ago.-2026","sep.-2026","oct.-2026","nov.-2026","dic.-2026","ene.-2027","feb.-2027","mar.-2027","abr.-2027","may.-2027","jun.-2027","jul.-2027","ago.-2027","sep.-2027","oct.-2027","nov.-2027","dic.-2027","ene.-2028","feb.-2028","mar.-2028","abr.-2028","may.-2028","jun.-2028","jul.-2028","ago.-2028","sep.-2028","oct.-2028","nov.-2028","dic.-2028","ene.-2029","feb.-2029","mar.-2029","abr.-2029","may.-2029","jun.-2029","jul.-2029","ago.-2029","sep.-2029","oct.-2029","nov.-2029","dic.-2029","ene.-2030","feb.-2030","mar.-2030","abr.-2030","may.-2030","jun.-2030","jul.-2030","ago.-2030","sep.-2030","oct.-2030","nov.-2030","dic.-2030","ene.-2031","feb.-2031","mar.-2031","abr.-2031","may.-2031","jun.-2031","jul.-2031","ago.-2031","sep.-2031","oct.-2031","nov.-2031","dic.-2031","ene.-2032","feb.-2032","mar.-2032","abr.-2032","may.-2032","jun.-2032","jul.-2032","ago.-2032","sep.-2032","oct.-2032","nov.-2032","dic.-2032","ene.-2033","feb.-2033","mar.-2033","abr.-2033","may.-2033","jun.-2033","jul.-2033","ago.-2033","sep.-2033","oct.-2033","nov.-2033","dic.-2033","ene.-2034","feb.-2034","mar.-2034","abr.-2034","may.-2034","jun.-2034","jul.-2034","ago.-2034","sep.-2034","oct.-2034","nov.-2034","dic.-2034","ene.-2035","feb.-2035","mar.-2035","abr.-2035","may.-2035","jun.-2035","jul.-2035","ago.-2035","sep.-2035","oct.-2035","nov.-2035","dic.-2035","ene.-2036","feb.-2036","mar.-2036","abr.-2036","may.-2036","jun.-2036","jul.-2036","ago.-2036","sep.-2036","oct.-2036","nov.-2036","dic.-2036","ene.-2037","feb.-2037","mar.-2037","abr.-2037","may.-2037","jun.-2037","jul.-2037","ago.-2037","sep.-2037","oct.-2037","nov.-2037","dic.-2037","ene.-2038","feb.-2038","mar.-2038","abr.-2038","may.-2038","jun.-2038","jul.-2038","ago.-2038","sep.-2038"],"data":[{"values":["26000000","26629430","27261993","27897706","28536583","29178640","29823894","30472360","31124054","31778992","32437190","33098665","33763433","34431510","35102913","35777658","36455762","37137242","37822114","38510396","39202104","39897255","40595867","41297957","42003541","42712638","43425265","44141440","44861180","45584502","46311426","47041968","47776147","48513980","49255487","50000685","50749592","51502228","52258610","53018758","53782689","54550424","55321981","56097378","56876635","57659772","58446807","59237760","60032651","60831498","61634322","62441143","63251980","64066854","64885784","65708790","66535894","67367115","68202474","69041992","69885689","70733585","71585703","72442063","73302685","74167592","75036804","75910344","76788232","77670490","78557140","79448204","80343703","81243661","82148099","83057039","83970503","84888516","85811098","86738272","87670063","88606491","89547582","90493357","91443840","92399055","93359025","94323774","95293326","96267704","97246932","98231036","99220038","100213963","101212837","102216683","103225526","104239391","105258303","106282288","107311369","108345574","109384928","110429455","111479182","112534134","113594338","114659820","115730606","116806723","117888196","118975053","120067321","121165026","122268196","123376857","124491037","125610763","126736064","127866967","129003499","130145689","131293565","132447155","133606488","134771592","135942496","137119229","138301820","139490298","140684692","141885032","143091347","144303668","145522023","146746444","147976960","149213601","150456399","151705383","152960585","154222036","155489766","156763806","158044190","159330947","160624109","161923709","163229779","164542350","165861455","167187127","168519399","169858302","171203871","172556138","173915136","175280900","176653463","178032858","179419121","180812284","182212382","183619450","185033523","186454635","187882822","189318118","190760559","192210181","193667019","195131109","196602488","198081191","199567256","201060718","202561615","204069983","205585860","207109284","208640291"],"label":"Proyección
+de tu
+dinero"},{"values":["26000000","26564123","27129637","27696546","28264853","28834562","29405676","29978198","30552132","31127482","31704251","32282442","32862059","33443106","34025586","34609502","35194858","35781658","36369906","36959604","37550756","38143366","38737438","39332975","39929981","40528459","41128413","41729847","42332764","42937168","43543062","44150451","44759338","45369727","45981621","46595024","47209940","47826372","48444325","49063802","49684806","50307343","50931414","51557025","52184178","52812878","53443129","54074934","54708298","55343223","55979714","56617776","57257410","57898623","58541416","59185795","59831763","60479324","61128483","61779242","62431606","63085580","63741166","64398369","65057192","65717641","66379718","67043429","67708776","68375764","69044397","69714679","70386614","71060207","71735460","72412379","73090968","73771230","74453170","75136791","75822099","76509097","77197789","77888179","78580272","79274073","79969584","80666810","81365757","82066426","82768824","83472955","84178821","84886429","85595782","86306884","87019740","87734355","88450731","89168874","89888789","90610479","91333949","92059203","92786246","93515082","94245715","94978151","95712392","96448445","97186313","97926000","98667512","99410853","100156027","100903039","101651893","102402594","103155146","103909555","104665824","105423958","106183962","106945840","107709597","108475238","109242768","110012190","110783509","111556731","112331860","113108901","113887858","114668736","115451540","116236275","117022945","117811555","118602110","119394615","120189074","120985493","121783876","122584228","123386554","124190858","124997146","125805423","126615693","127427962","128242233","129058513","129876806","130697118","131519452","132343814","133170210","133998644","134829120","135661645","136496224","137332860","138171560","139012328","139855170","140700091","141547095","142396189","143247376","144100663","144956054","145813555","146673170","147534906","148398767","149264758","150132885","151003153","151875568","152750134","153626857"],"label":"Proyección
+de la
+inflación"}]},"strategist":{"InvestId":"00010","Profile":"00031","TypeId":"00001","BriefcaseStrategist":"IV1031"},"idSimulator":527571,"answers":{"goal":{"Goal_id":"4","Goal_Other":null,"Date_Start":"2023-09-01","Date_End":"2038-09-01","Value":"1245465","TypeTime":"Años","Time":"15","NameGoal":"Ahorrar
+para mi
+retiro"},"profile":{"Risk_prof_id":"2","NameProfileRisk":"Observador"},"periodicityContributions":{"Periodicity":"mensuales","Contribution":"500000"},"SaveUp":"26000000"}}
